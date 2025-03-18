@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startseite</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="js/cart.js" defer></script>
+    <script src="js/auth.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/logo.png" alt="Logo" class="logo-img">
+            <h1>Mein Klamottenladen</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Startseite</a></li>
+                <li><a href="products.html">Produkte</a></li>
+                <li><a href="about.html">Über uns</a></li>
+                <li><a href="contact.html">Kontakt</a></li>
+                <li>
+                    <a href="cart.html" id="cart-link">
+                        <div class="cart-icon-container">
+                            <img src="images/shopping-cart.png" alt="Warenkorb" class="cart-icon">
+                            <span class="cart-count">0</span>
+                        </div>
+                    </a>
+                </li>
+                <li id="account-menu">
+                    <a href="#" id="account-link">Mein Konto</a>
+                    <div id="account-dropdown" class="dropdown-content">
+                        <a href="#" id="account-info-link">Kontoinfo</a>
+                        <a href="#" id="orders-link">Meine Bestellungen</a>
+                        <a href="#" id="settings-link">Einstellungen</a>
+                        <a href="#" id="logout-link">Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main id="main-content">
+        <section id="hero">
+            <h2>HERZLICH WILLKOMMEN AUF REPWORLD</h2>
+        </section>
+
+        <section id="products">
+            <h2>Unsere Produkte</h2>
+            <div class="products">
+                <div class="product">
+                    <div class="product-image">
+                        <img src="images/product1.jpg" alt="Produkt 1">
+                    </div>
+                    <div class="product-info">
+                        <h2>Produkt 1</h2>
+                        <p>€19.99</p>
+                        <a href="products.html" class="btn-more-info">Mehr erfahren</a>
+                    </div>
+                </div>
+                <div class="product">
+                    <div class="product-image">
+                        <img src="images/product2.jpg" alt="Produkt 2">
+                    </div>
+                    <div class="product-info">
+                        <h2>Produkt 2</h2>
+                        <p>€29.99</p>
+                        <a href="products.html" class="btn-more-info">Mehr erfahren</a>
+                    </div>
+                </div>
+                <div class="product">
+                    <div class="product-image">
+                        <img src="images/product3.jpg" alt="Produkt 3">
+                    </div>
+                    <div class="product-info">
+                        <h2>Produkt 3</h2>
+                        <p>€39.99</p>
+                        <a href="products.html" class="btn-more-info">Mehr erfahren</a>
+                    </div>
+                </div>
+                <div class="product">
+                    <div class="product-image">
+                        <img src="images/product4.jpg" alt="Produkt 4">
+                    </div>
+                    <div class="product-info">
+                        <h2>Produkt 4</h2>
+                        <p>€49.99</p>
+                        <a href="products.html" class="btn-more-info">Mehr erfahren</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="login-register-panel">
+            <h2>Login</h2>
+            <form id="login-form">
+                <label for="login-email">E-Mail:</label>
+                <input type="email" id="login-email" required>
+                <label for="login-password">Passwort:</label>
+                <input type="password" id="login-password" required>
+                <button type="submit">Login</button>
+            </form>
+            <p>Noch kein Konto? <a href="#" class="register-link">Registrieren</a></p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Unser Unternehmen. Alle Rechte vorbehalten.</p>
+    </footer>
+
+    <script>
+        // Toggle account dropdown menu
+        document.getElementById('account-link').addEventListener('click', function(event) {
+            event.preventDefault();
+            const dropdown = document.getElementById('account-dropdown');
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Close dropdowns when clicking outside
+        window.onclick = function(event) {
+            if (!event.target.matches('#account-link')) {
+                const dropdowns = document.getElementsByClassName("dropdown-content");
+                for (let i = 0; i < dropdowns.length; i++) {
+                    const openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === 'block') {
+                        openDropdown.style.display = 'none';
+                    }
+                }
+            }
+        }
+
+        // Logout handling
+        document.getElementById('logout-link').addEventListener('click', function(event) {
+            event.preventDefault();
+            localStorage.removeItem('user');
+            window.location.href = 'index.html';
+        });
+
+        // Admin account setup
+        document.addEventListener('DOMContentLoaded', function() {
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            const adminExists = users.some(user => user.email === 'admin.1@gmail.com');
+
+            if (!adminExists) {
+                const admin = { email: 'admin.1@gmail.com', password: '123', role: 'admin', creationDate: new Date().toLocaleDateString() };
+                users.push(admin);
+                localStorage.setItem('users', JSON.stringify(users));
+            }
+
+            // Check if user is logged in
+            const loggedInUser = JSON.parse(localStorage.getItem('user'));
+            if (loggedInUser) {
+                document.getElementById('account-menu').innerHTML = `
+                    <a href="#" id="account-link">Mein Konto</a>
+                    <div id="account-dropdown" class="dropdown-content">
+                        <a href="#" id="account-info-link">Kontoinfo</a>
+                        <a href="#" id="orders-link">Meine Bestellungen</a>
+                        <a href="#" id="settings-link">Einstellungen</a>
+                        <a href="#" id="logout-link">Logout</a>
+                    </div>
+                `;
+                document.getElementById('account-link').addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const dropdown = document.getElementById('account-dropdown');
+                    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+                });
+                document.getElementById('logout-link').addEventListener('click', function(event) {
+                    event.preventDefault();
+                    localStorage.removeItem('user');
+                    window.location.href = 'index.html';
+                });
+                document.getElementById('account-info-link').addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const user = JSON.parse(localStorage.getItem('user'));
+                    const accountInfo = `
+                        <div class="account-info">
+                            <h2>Kontoinformationen</h2>
+                            <p>E-Mail: ${user.email}</p>
+                            <p>Passwort: <span id="password-field">********</span> <button id="toggle-password">Anzeigen</button></p>
+                            <p>Erstellungsdatum: ${user.creationDate}</p>
+                            <button id="change-password">Passwort ändern</button>
+                        </div>
+                    `;
+                    document.getElementById('main-content').innerHTML = accountInfo;
+                    document.getElementById('toggle-password').addEventListener('click', function() {
+                        const passwordField = document.getElementById('password-field');
+                        if (passwordField.textContent === '********') {
+                            passwordField.textContent = user.password;
+                            this.textContent = 'Verbergen';
+                        } else {
+                            passwordField.textContent = '********';
+                            this.textContent = 'Anzeigen';
+                        }
+                    });
+                    document.getElementById('change-password').addEventListener('click', function() {
+                        const newPassword = prompt('Neues Passwort eingeben:');
+                        if (newPassword) {
+                            user.password = newPassword;
+                            localStorage.setItem('user', JSON.stringify(user));
+                            const users = JSON.parse(localStorage.getItem('users'));
+                            const userIndex = users.findIndex(u => u.email === user.email);
+                            users[userIndex].password = newPassword;
+                            localStorage.setItem('users', JSON.stringify(users));
+                            alert('Passwort erfolgreich geändert');
+                        }
+                    });
+                });
+                document.getElementById('orders-link').addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const orders = JSON.parse(localStorage.getItem('orders')) || [];
+                    const user = JSON.parse(localStorage.getItem('user'));
+                    const userOrders = orders.filter(order => order.email === user.email);
+                    let ordersHtml = '<div class="orders"><h2>Meine Bestellungen</h2>';
+                    if (userOrders.length > 0) {
+                        ordersHtml += '<table><tr><th>Produktname</th><th>Artikelnummer</th><th>Artikelmenge</th><th>Preis</th><th>Gesamtpreis</th></tr>';
+                        userOrders.forEach(order => {
+                            ordersHtml += `<tr>
+                                <td>${order.productName}</td>
+                                <td>${order.productNumber}</td>
+                                <td>${order.quantity}</td>
+                                <td>${order.price}</td>
+                                <td>${order.totalPrice}</td>
+                            </tr>`;
+                        });
+                        ordersHtml += '</table></div>';
+                    } else {
+                        ordersHtml += '<p>Keine Bestellungen gefunden.</p></div>';
+                    }
+                    document.getElementById('main-content').innerHTML = ordersHtml;
+                });
+            }
+        });
+
+        // Register form handling
+        document.getElementById('register-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const email = document.getElementById('register-email').value;
+            const password = document.getElementById('register-password').value;
+
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            const userExists = users.some(user => user.email === email);
+
+            if (userExists) {
+                alert('Benutzer existiert bereits');
+            } else {
+                const user = { email, password, creationDate: new Date().toLocaleDateString() };
+                users.push(user);
+                localStorage.setItem('users', JSON.stringify(users));
+                localStorage.setItem('user', JSON.stringify(user));
+                alert('Registrierung erfolgreich');
+                window.location.href = 'index.html';
+            }
+        });
+
+        // Login form handling
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            const user = users.find(user => user.email === email && user.password === password);
+
+            if (user) {
+                localStorage.setItem('user', JSON.stringify(user));
+                alert('Erfolgreich eingeloggt');
+                document.getElementById('login-register-panel').style.display = 'none';
+                document.getElementById('account-menu').innerHTML = `
+                    <a href="#" id="account-link">Mein Konto</a>
+                    <div id="account-dropdown" class="dropdown-content">
+                        <a href="#" id="account-info-link">Kontoinfo</a>
+                        <a href="#" id="orders-link">Meine Bestellungen</a>
+                        <a href="#" id="settings-link">Einstellungen</a>
+                        <a href="#" id="logout-link">Logout</a>
+                    </div>
+                `;
+                document.getElementById('account-link').addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const dropdown = document.getElementById('account-dropdown');
+                    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+                });
+                document.getElementById('logout-link').addEventListener('click', function(event) {
+                    event.preventDefault();
+                    localStorage.removeItem('user');
+                    window.location.href = 'index.html';
+                });
+                document.getElementById('account-info-link').addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const user = JSON.parse(localStorage.getItem('user'));
+                    const accountInfo = `
+                        <div class="account-info">
+                            <h2>Kontoinformationen</h2>
+                            <p>E-Mail: ${user.email}</p>
+                            <p>Passwort: <span id="password-field">********</span> <button id="toggle-password">Anzeigen</button></p>
+                            <p>Erstellungsdatum: ${user.creationDate}</p>
+                            <button id="change-password">Passwort ändern</button>
+                        </div>
+                    `;
+                    document.getElementById('main-content').innerHTML = accountInfo;
+                    document.getElementById('toggle-password').addEventListener('click', function() {
+                        const passwordField = document.getElementById('password-field');
+                        if (passwordField.textContent === '********') {
+                            passwordField.textContent = user.password;
+                            this.textContent = 'Verbergen';
+                        } else {
+                            passwordField.textContent = '********';
+                            this.textContent = 'Anzeigen';
+                        }
+                    });
+                    document.getElementById('change-password').addEventListener('click', function() {
+                        const newPassword = prompt('Neues Passwort eingeben:');
+                        if (newPassword) {
+                            user.password = newPassword;
+                            localStorage.setItem('user', JSON.stringify(user));
+                            const users = JSON.parse(localStorage.getItem('users'));
+                            const userIndex = users.findIndex(u => u.email === user.email);
+                            users[userIndex].password = newPassword;
+                            localStorage.setItem('users', JSON.stringify(users));
+                            alert('Passwort erfolgreich geändert');
+                        }
+                    });
+                });
+                document.getElementById('orders-link').addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const orders = JSON.parse(localStorage.getItem('orders')) || [];
+                    const userOrders = orders.filter(order => order.email === user.email);
+                    let ordersHtml = '<div class="orders"><h2>Meine Bestellungen</h2>';
+                    if (userOrders.length > 0) {
+                        ordersHtml += '<table><tr><th>Produktname</th><th>Artikelnummer</th><th>Artikelmenge</th><th>Preis</th><th>Gesamtpreis</th></tr>';
+                        userOrders.forEach(order => {
+                            ordersHtml += `<tr>
+                                <td>${order.productName}</td>
+                                <td>${order.productNumber}</td>
+                                <td>${order.quantity}</td>
+                                <td>${order.price}</td>
+                                <td>${order.totalPrice}</td>
+                            </tr>`;
+                        });
+                        ordersHtml += '</table></div>';
+                    } else {
+                        ordersHtml += '<p>Keine Bestellungen gefunden.</p></div>';
+                    }
+                    document.getElementById('main-content').innerHTML = ordersHtml;
+                });
+            } else {
+                alert('Ungültige Anmeldedaten');
+            }
+        });
+    </script>
+</body>
+</html>

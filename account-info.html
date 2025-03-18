@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontoinformationen</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Kontoinformationen</h1>
+        <div class="account-info">
+            <label for="email">E-Mail:</label>
+            <input type="email" id="email" value="example@example.com" disabled>
+        </div>
+        <div class="account-info">
+            <label for="password">Passwort:</label>
+            <input type="password" id="password" value="********" disabled>
+            <button id="toggle-password">Anzeigen</button>
+        </div>
+        <div class="account-info">
+            <label for="new-password">Neues Passwort:</label>
+            <input type="password" id="new-password">
+        </div>
+        <button id="change-password">Passwort ändern</button>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warenkorb</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="js/cart.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/logo.png" alt="Logo" class="logo-img">
+            <h1>Mein Klamottenladen</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Startseite</a></li>
+                <li><a href="products.html">Produkte</a></li>
+                <li><a href="about.html">Über uns</a></li>
+                <li><a href="contact.html">Kontakt</a></li>
+                <li>
+                    <a href="cart.html" id="cart-link">
+                        <div class="cart-icon-container">
+                            <img src="images/shopping-cart.png" alt="Warenkorb" class="cart-icon">
+                            <span class="cart-count">0</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="cart">
+            <h2>Warenkorb</h2>
+            <div class="cart-items" id="cart-items">
+                <!-- Warenkorb-Artikel werden hier dynamisch eingefügt -->
+            </div>
+            <div class="cart-total">
+                <h3>Gesamt:</h3>
+                <span class="total-price" id="total-price">€0.00</span>
+            </div>
+            <button class="checkout-button">Zur Kasse</button>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Unser Unternehmen. Alle Rechte vorbehalten.</p>
+    </footer>
+</body>
+
+</html>
