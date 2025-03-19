@@ -51,6 +51,12 @@ header nav ul li a:hover {
 header .cart-icon-container {
     position: relative;
     display: inline-block;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+header .cart-icon-container:hover {
+    transform: scale(1.1);
 }
 
 header .cart-icon {
@@ -69,53 +75,11 @@ header .cart-count {
     padding: 2px 6px;
     font-size: 14px;
     vertical-align: middle;
+    transition: background-color 0.3s;
 }
 
-#account-menu {
-    position: relative;
-}
-
-#account-menu a {
-    margin-left: 15px;
-    color: #e0e0e0;
-    text-decoration: none;
-    font-size: 18px;
-}
-
-#account-menu a:hover {
-    text-decoration: underline;
-}
-
-#account-dropdown, #login-register-panel {
-    display: none;
-    position: absolute;
-    right: 0;
-    background-color: #1f1f1f;
-    min-width: 200px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    padding: 20px;
-    border-radius: 5px;
-}
-
-#account-dropdown a, #login-register-panel a {
-    color: white;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-#account-dropdown a:hover, #login-register-panel a:hover {
-    background-color: #575757;
-}
-
-.register-link {
-    color: blue;
-    text-decoration: underline;
-    cursor: pointer;
-    display: block;
-    margin-top: 10px;
-    text-align: center;
+header .cart-count:hover {
+    background-color: #d35400;
 }
 
 main {
@@ -353,4 +317,422 @@ form button:hover {
 
 .orders tr:hover {
     background-color: #444;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #1f1f1f;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 10px;
+    text-align: center;
+    color: #e0e0e0;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tab-link {
+    background-color: #333;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    color: #e0e0e0;
+    border-radius: 5px;
+    margin: 0 5px;
+}
+
+.tab-link:hover {
+    background-color: #444;
+}
+
+.tab-link.active {
+    background-color: #555;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-top: 1rem;
+}
+
+form input {
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    border: 1px solid #444;
+    border-radius: 4px;
+    background-color: #2c2c2c;
+    color: #e0e0e0;
+}
+
+form button {
+    padding: 0.75rem;
+    margin-top: 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+/* Account Menu Styles */
+#account-menu {
+    position: relative;
+}
+
+#account-menu a {
+    margin-left: 15px;
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+#account-menu a:hover {
+    text-decoration: underline;
+}
+
+#account-dropdown {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding-top: 60px;
+}
+
+#account-dropdown .modal-content {
+    background-color: #1f1f1f;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 10px;
+    text-align: center;
+    color: #e0e0e0;
+}
+
+#account-dropdown .close-account {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#account-dropdown .close-account:hover,
+#account-dropdown .close-account:focus {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#account-dropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#account-dropdown ul li {
+    margin: 10px 0;
+}
+
+#account-dropdown ul li a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    background-color: #333;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#account-dropdown ul li a:hover {
+    background-color: #444;
+}
+
+/* Kontoinfo Panel Styles */
+#account-info-panel {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding-top: 60px;
+}
+
+#account-info-panel .modal-content {
+    background-color: #1f1f1f;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 10px;
+    text-align: center;
+    color: #e0e0e0;
+}
+
+#account-info-panel .close-account-info {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#account-info-panel .close-account-info:hover,
+#account-info-panel .close-account-info:focus {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#account-info-panel form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#account-info-panel form label {
+    margin-top: 1rem;
+}
+
+#account-info-panel form input {
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    border: 1px solid #444;
+    border-radius: 4px;
+    background-color: #2c2c2c;
+    color: #e0e0e0;
+}
+
+#account-info-panel form button {
+    padding: 0.75rem;
+    margin-top: 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#account-info-panel form button:hover {
+    background-color: #0056b3;
+}
+
+/* Bestellungen Panel Styles */
+#orders-panel {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding-top: 60px;
+}
+
+#orders-panel .modal-content {
+    background-color: #1f1f1f;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+    text-align: center;
+    color: #e0e0e0;
+}
+
+#orders-panel .close-orders {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#orders-panel .close-orders:hover,
+#orders-panel .close-orders:focus {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#orders-table th, #orders-table td {
+    border: 1px solid #444;
+    padding: 10px;
+    text-align: left;
+}
+
+#orders-table th {
+    background-color: #333;
+    color: #e0e0e0;
+}
+
+#orders-table tr:nth-child(even) {
+    background-color: #2c2c2c;
+}
+
+#orders-table tr:hover {
+    background-color: #444;
+}
+
+/* Einstellungen Panel Styles */
+#settings-panel {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding-top: 60px;
+}
+
+#settings-panel .modal-content {
+    background-color: #1f1f1f;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 10px;
+    text-align: center;
+    color: #e0e0e0;
+}
+
+#settings-panel .close-settings {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#settings-panel .close-settings:hover,
+#settings-panel .close-settings:focus {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#settings-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#settings-form label {
+    margin-top: 1rem;
+}
+
+#settings-form select, #settings-form input[type="checkbox"] {
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    border: 1px solid #444;
+    border-radius: 4px;
+    background-color: #2c2c2c;
+    color: #e0e0e0;
+}
+
+#settings-form button {
+    padding: 0.75rem;
+    margin-top: 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#settings-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Versand- und Zahlungsarten Styles */
+.info-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.info-box {
+    background-color: #2c2c2c;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 48%;
+}
+
+.info-box h3 {
+    margin-top: 0;
+}
+
+.info-box p {
+    margin: 10px 0 0;
 }

@@ -4,16 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unsere Produktpalette</title>
+    <title>Unsere ganzen Produkte</title>
     <link rel="stylesheet" href="styles.css">
     <script src="js/cart.js" defer></script>
+    <style>
+        .quality-image {
+            width: 50px; /* Set the width of the quality images */
+            height: auto; /* Maintain the aspect ratio */
+            margin: 5px; /* Add some margin around the images */
+            cursor: pointer; /* Change cursor to pointer on hover */
+        }
+    </style>
 </head>
 
 <body>
     <header>
         <div class="logo">
             <img src="images/logo.png" alt="Logo" class="logo-img">
-            <h1>Mein Klamottenladen</h1>
+            <h1>RepWorld</h1>
         </div>
         <nav>
             <ul>
@@ -34,15 +42,15 @@
     </header>
     <main>
         <section id="products">
-            <h2>Unsere Produktpalette</h2>
+            <h2>Unsere ganzen Produkte</h2>
             <div class="products">
                 <div class="product">
                     <div class="product-image">
                         <img src="images/product1.jpg" alt="Produkt 1">
                     </div>
                     <div class="product-info">
-                        <h2>Produkt 1</h2>
-                        <p>€19.99</p>
+                        <h2>Gucci Cap</h2>
+                        <p>€24,99</p>
                         <button class="btn-add-to-cart" data-id="1" data-name="Produkt 1" data-price="19.99" data-image="images/product1.jpg">In den Warenkorb</button>
                     </div>
                 </div>
@@ -51,8 +59,8 @@
                         <img src="images/product2.jpg" alt="Produkt 2">
                     </div>
                     <div class="product-info">
-                        <h2>Produkt 2</h2>
-                        <p>€29.99</p>
+                        <h2>Ralph Lauren Zipper</h2>
+                        <p>€44,99</p>
                         <button class="btn-add-to-cart" data-id="2" data-name="Produkt 2" data-price="29.99" data-image="images/product2.jpg">In den Warenkorb</button>
                     </div>
                 </div>
@@ -61,8 +69,8 @@
                         <img src="images/product3.jpg" alt="Produkt 3">
                     </div>
                     <div class="product-info">
-                        <h2>Produkt 3</h2>
-                        <p>€39.99</p>
+                        <h2>Airpods Gen2/3</h2>
+                        <p>€29,99</p>
                         <button class="btn-add-to-cart" data-id="3" data-name="Produkt 3" data-price="39.99" data-image="images/product3.jpg">In den Warenkorb</button>
                     </div>
                 </div>
@@ -71,9 +79,170 @@
                         <img src="images/product4.jpg" alt="Produkt 4">
                     </div>
                     <div class="product-info">
-                        <h2>Produkt 4</h2>
+                        <h2>Rolex</h2>
                         <p>€49.99</p>
                         <button class="btn-add-to-cart" data-id="4" data-name="Produkt 4" data-price="49.99" data-image="images/product4.jpg">In den Warenkorb</button>
+                    </div>
+                </div>
+                <!-- 16 additional products -->
+                <div class="product">
+                    <div class="product-image">
+                        <img src="images/product5.jpg" alt="Produkt 5">
+                    </div>
+                    <div class="product-info">
+                        <h2>Nike Triko</h2>
+                        <p>€29,99</p>
+                        <button class="btn-add-to-cart" data-id="5" data-name="Produkt 5" data-price="59.99" data-image="images/product5.jpg">In den Warenkorb</button>
+                    </div>
+                </div>
+                <div class="product">
+                    <div class="product-image">
+                        <img src="images/product6.jpg" alt="Produkt 6">
+                    </div>
+                    <div class="product-info">
+                        <h2>Lacoste Mütze</h2>
+                        <p>€14,99</p>
+                        <button class="btn-add-to-cart" data-id="6" data-name="Produkt 6" data-price="69.99" data-image="images/product6.jpg">In den Warenkorb</button>
+                    </div>
+                </div>
+                <div class="product">
+                    <div class="product-image">
+                        <img src="images/product7.jpg" alt="Produkt 7">
+                    </div>
+                    <div class="product-info">
+                        <h2>Louis Vuitton Gürtel</h2>
+                        <p>€26,99</p>
+                        <button class="btn-add-to-cart" data-id="7" data-name="Produkt 7" data-price="79.99" data-image="images/product7.jpg">In den Warenkorb</button>
+                    </div>
+                </div>
+                <div class="product">
+                    <div class="product-image">
+                        <img src="images/product8.jpg" alt="Produkt 8">
+                    </div>
+                    <div class="product-info">
+                        <h2>Jordan 4</h2>
+                        <p>€54,99</p>
+                        <button class="btn-add-to-cart" data-id="8" data-name="Produkt 8" data-price="89.99" data-image="images/product8.jpg">In den Warenkorb</button>
+                    </div>
+                </div>
+                <div class="product">
+                    <div class="product-image">
+                        <img src="images/product9.jpg" alt="Produkt 9">
+                    </div>
+                    <div class="product-info">
+                        <h2>Moncler Pullover</h2>
+                        <p>€29,99</p>
+                        <button class="btn-add-to-cart" data-id="9" data-name="Produkt 9" data-price="99.99" data-image="images/product9.jpg">In den Warenkorb</button>
+                    </div>
+                </div>
+                <div class="product">
+                    <div class="product-image">
+                        <img src="images/product10.jpg" alt="Produkt 10">
+                    </div>
+                    <div class="product-info">
+                        <h2>Moncler Mütze</h2>
+                        <p>€19,99</p>
+                        <button class="btn-add-to-cart" data-id="10" data-name="Produkt 10" data-price="109.99" data-image="images/product10.jpg">In den Warenkorb</button>
+                    </div>
+                </div>
+                <div class="product">
+                    <div class="product-image">
+                        <img src="images/product11.jpg" alt="Produkt 11">
+                    </div>
+                    <div class="product-info">
+                        <h2>Ami Paris` Pullover</h2>
+                        <p>€39,99</p>
+                        <button class="btn-add-to-cart" data-id="11" data-name="Produkt 11" data-price="119.99" data-image="images/product11.jpg">In den Warenkorb</button>
+                    </div>
+                </div>
+                <div class="product">
+                    <div class="product-image">
+                        <img src="images/product12.jpg" alt="Produkt 12">
+                    </div>
+                    <div class="product-info">
+                        <h2>Kenzo Paris T-Shirt</h2>
+                        <p>€24,99</p>
+                        <button class="btn-add-to-cart" data-id="12" data-name="Produkt 12" data-price="129.99" data-image="images/product12.jpg">In den Warenkorb</button>
+                    </div>
+                </div>
+                <div class="product">
+                    <div class="product-image">
+                        <img src="images/product13.jpg" alt="Produkt 13">
+                    </div>
+                    <div class="product-info">
+                        <h2>Victoria Secret Tangas</h2>
+                        <p>€14,99</p>
+                        <button class="btn-add-to-cart" data-id="13" data-name="Produkt 13" data-price="139.99" data-image="images/product13.jpg">In den Warenkorb</button>
+                    </div>
+                </div>
+                <div class="product">
+                    <div class="product-image">
+                        <img src="images/product14.jpg" alt="Produkt 14">
+                    </div>
+                    <div class "product-info">
+                        <h2>Gucci Gürtel</h2>
+                        <p>€29,99</p>
+                        <button class="btn-add-to-cart" data-id="14" data-name="Produkt 14" data-price="149.99" data-image="images/product14.jpg">In den Warenkorb</button>
+                    </div>
+                </div>
+                <div class="product">
+                    <div class="product-image">
+                        <img src="images/product15.jpg" alt="Produkt 15">
+                    </div>
+                    <div class="product-info">
+                        <h2>Gucci Frauen Handtasche</h2>
+                        <p>€39,99</p>
+                        <button class="btn-add-to-cart" data-id="15" data-name="Produkt 15" data-price="159.99" data-image="images/product15.jpg">In den Warenkorb</button>
+                    </div>
+                </div>
+                <div class="product">
+                    <div class="product-image">
+                        <img src="images/product16.jpg" alt="Produkt 16">
+                    </div>
+                    <div class="product-info">
+                        <h2>Prada Gürtel</h2>
+                        <p>€29,99</p>
+                        <button class="btn-add-to-cart" data-id="16" data-name="Produkt 16" data-price="169.99" data-image="images/product16.jpg">In den Warenkorb</button>
+                    </div>
+                </div>
+                <div class="product">
+                    <div class="product-image">
+                        <img src="images/product17.jpg" alt="Produkt 17">
+                    </div>
+                    <div class="product-info">
+                        <h2>Lacoste Bauchtasche</h2>
+                        <p>€39,99</p>
+                        <button class="btn-add-to-cart" data-id="17" data-name="Produkt 17" data-price="179.99" data-image="images/product17.jpg">In den Warenkorb</button>
+                    </div>
+                </div>
+                <div class="product">
+                    <div class="product-image">
+                        <img src="images/product18.jpg" alt="Produkt 18">
+                    </div>
+                    <div class="product-info">
+                        <h2>Lacoste Bauchtasche klein</h2>
+                        <p>€34,99</p>
+                        <button class="btn-add-to-cart" data-id="18" data-name="Produkt 18" data-price="189.99" data-image="images/product18.jpg">In den Warenkorb</button>
+                    </div>
+                </div>
+                <div class="product">
+                    <div class="product-image">
+                        <img src="images/product19.jpg" alt="Produkt 19">
+                    </div>
+                    <div class="product-info">
+                        <h2>Ralph Lauren Strick Pollover</h2>
+                        <p>€44,99</p>
+                        <button class="btn-add-to-cart" data-id="19" data-name="Produkt 19" data-price="199.99" data-image="images/product19.jpg">In den Warenkorb</button>
+                    </div>
+                </div>
+                <div class="product">
+                    <div class="product-image">
+                        <img src="images/product20.jpg" alt="Produkt 20">
+                    </div>
+                    <div class="product-info">
+                        <h2>Louis Vuitton Handyhülle</h2>
+                        <p>€19,99</p>
+                        <button class="btn-add-to-cart" data-id="20" data-name="Produkt 20" data-price="209.99" data-image="images/product20.jpg">In den Warenkorb</button>
                     </div>
                 </div>
             </div>
@@ -82,6 +251,132 @@
     <footer>
         <p>&copy; 2025 Unser Unternehmen. Alle Rechte vorbehalten.</p>
     </footer>
+
+    <!-- Modal for product details -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="product-details">
+                <!-- Product details will be dynamically inserted here -->
+            </div>
+            <div id="product-quality-images">
+                <h3>Qualitätsbilder</h3>
+                <div id="quality-images-list">
+                    <!-- Quality images will be dynamically inserted here -->
+                </div>
+            </div>
+            <div id="product-reviews">
+                <h3>Rezensionen</h3>
+                <ul id="reviews-list">
+                    <!-- Reviews will be dynamically inserted here -->
+                </ul>
+                <form id="review-form">
+                    <label for="review-text">Ihre Rezension:</label>
+                    <textarea id="review-text" required></textarea>
+                    <button type="submit">Rezension absenden</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Open product modal
+        document.querySelectorAll('.product-image img').forEach(img => {
+            img.addEventListener('click', function() {
+                const product = this.closest('.product');
+                const productName = product.querySelector('.product-info h2').textContent;
+                const productPrice = product.querySelector('.product-info p').textContent;
+                const productImage = this.src;
+
+                const productDetails = `
+                    <h2>${productName}</h2>
+                    <img src="${productImage}" alt="${productName}">
+                    <p>${productPrice}</p>
+                    <p>Das ist eine 1zu1 nachgemachte Gucci cap mit bester Qualität die man bekommen kann.</p>
+                `;
+
+                document.getElementById('product-details').innerHTML = productDetails;
+                document.getElementById('product-modal').style.display = 'block';
+
+                // Load reviews
+                loadReviews(productName);
+
+                // Load quality images
+                loadQualityImages(productName);
+            });
+        });
+
+        // Close product modal
+        document.querySelector('.close-modal').addEventListener('click', function() {
+            document.getElementById('product-modal').style.display = 'none';
+        });
+
+        // Close modal when clicking outside of it
+        window.addEventListener('click', function(event) {
+            if (event.target == document.getElementById('product-modal')) {
+                document.getElementById('product-modal').style.display = 'none';
+            }
+        });
+
+        // Handle review submission
+        document.getElementById('review-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const reviewText = document.getElementById('review-text').value;
+            const productName = document.getElementById('product-details').querySelector('h2').textContent;
+
+            const reviews = JSON.parse(localStorage.getItem('reviews')) || {};
+            if (!reviews[productName]) {
+                reviews[productName] = [];
+            }
+            reviews[productName].push(reviewText);
+            localStorage.setItem('reviews', JSON.stringify(reviews));
+
+            document.getElementById('review-text').value = '';
+            loadReviews(productName);
+        });
+
+        // Load reviews for a product
+        function loadReviews(productName) {
+            const reviews = JSON.parse(localStorage.getItem('reviews')) || {};
+            const reviewsList = document.getElementById('reviews-list');
+            reviewsList.innerHTML = '';
+
+            if (reviews[productName]) {
+                reviews[productName].forEach(review => {
+                    const li = document.createElement('li');
+                    li.textContent = review;
+                    reviewsList.appendChild(li);
+                });
+            }
+        }
+
+        // Load quality images for a product
+        function loadQualityImages(productName) {
+            const qualityImages = {
+                "Gucci Cap": ["images/quality1.jpg", "images/quality2.jpg", "images/quality3.jpg"],
+                "Ralph Lauren Zipper": ["images/quality4.jpg", "images/quality5.jpg", "images/quality6.jpg"],
+                "Airpods Gen2/3": ["images/quality7.jpg", "images/quality8.jpg", "images/quality9.jpg"],
+                "Rolex": ["images/quality10.jpg", "images/quality11.jpg", "images/quality12.jpg"],
+                // Add more products and their quality images here
+            };
+
+            const qualityImagesList = document.getElementById('quality-images-list');
+            qualityImagesList.innerHTML = '';
+
+            if (qualityImages[productName]) {
+                qualityImages[productName].forEach(image => {
+                    const img = document.createElement('img');
+                    img.src = image;
+                    img.alt = `${productName} Qualitätsbild`;
+                    img.classList.add('quality-image');
+                    img.addEventListener('click', function() {
+                        window.open(image, '_blank');
+                    });
+                    qualityImagesList.appendChild(img);
+                });
+            }
+        }
+    </script>
 </body>
 
 </html>
